@@ -2,6 +2,7 @@ import { ChartNoAxesCombined, Clock3, House, LogOut, ShieldCheck, Target } from 
 import { useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 import logoFinza from '../../assets/Logo.png'
+import Button from '../ui/Button';
 import { useApp } from '../../context/AppContext'
 import styles from './AppLayout.module.scss'
 

@@ -1,0 +1,65 @@
+@use './variables' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --finza-surface: #{$color-surface};
+  --finza-primary: #{$color-action-primary};
+  --finza-income: #{$color-action-income};
+  --finza-expense: #{$color-action-expense};
+  --finza-text-primary: #{$color-text-primary};
+  --finza-text-secondary: #{$color-text-secondary};
+  --finza-text-primary-rgb: #{$color-text-primary-rgb};
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  font-family: Inter, sans-serif;
+  color: $color-text-primary;
+  background: $color-bg-general;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: $color-bg-general;
+  color: $color-text-primary;
+  font-family: Inter, sans-serif;
+  font-size: $font-size-base;
+  line-height: 1.5;
+  text-align: left;
+}
+
+button,
+input,
+textarea,
+select,
+a {
+  font: inherit;
+  transition: all 0.2s ease-in-out;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 $space-md;
+  color: $color-text-primary;
+  line-height: 1.2;
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }

@@ -1,0 +1,75 @@
+@use './variables' as *;
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  padding: $space-sm $space-md;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+}
+
+@mixin button-primary {
+  background: $color-action-primary;
+  color: $color-action-primary-text;
+  box-shadow: $glow-primary;
+}
+
+@mixin button-income {
+  background: $color-action-income;
+  color: $color-action-income-text;
+}
+
+@mixin button-expense {
+  background: $color-action-expense;
+  color: $color-action-expense-text;
+}
+
+@mixin button-danger {
+  background: $color-danger;
+  color: $color-danger-text;
+}
+
+@mixin input-base {
+  width: 100%;
+  padding: $space-sm $space-md;
+  border: 1px solid rgba($color-text-primary, 0.3);
+  border-radius: $radius-sm;
+  outline: none;
+  background: $color-input-bg;
+  color: $color-text-primary;
+  font: inherit;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+
+  &::placeholder {
+    color: $color-text-placeholder;
+  }
+
+  &:focus {
+    border-color: $color-action-primary;
+    box-shadow: 0 0 0 3px rgba($color-action-primary, 0.18);
+  }
+}
+
+@mixin input-error {
+  border-color: $color-danger;
+  box-shadow: 0 0 0 2px rgba($color-danger, 0.2);
+}
+
+@mixin card-surface {
+  padding: $space-lg;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  box-shadow: $shadow-card;
+}

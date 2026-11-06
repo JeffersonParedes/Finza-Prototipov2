@@ -1,0 +1,93 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$space-md;
+  background: vars.$color-bg-dark;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  padding: vars.$space-xl;
+  border-radius: vars.$radius-lg;
+}
+
+.header { text-align: center; }
+
+.logo {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 vars.$space-lg;
+
+  img { width: auto; height: 130px; object-fit: contain; }
+}
+
+.subtitle {
+  margin: 0 0 vars.$space-xl;
+  color: vars.$color-text-secondary;
+  font-size: vars.$font-size-base;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-lg;
+}
+
+.inputWithIcon { position: relative; }
+
+.fieldIcon {
+  position: absolute;
+  z-index: 1;
+  top: 39px;
+  left: vars.$space-md;
+  color: vars.$color-text-secondary;
+  pointer-events: none;
+}
+
+.emailInput, .passwordInput { padding-left: 44px; }
+.passwordInput { padding-right: 44px; }
+
+.passwordToggle {
+  position: absolute;
+  right: vars.$space-sm;
+  top: 39px;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 0;
+  border-radius: vars.$radius-sm;
+  background: transparent;
+  color: vars.$color-text-secondary;
+  cursor: pointer;
+
+  &:hover { color: vars.$color-action-primary; }
+  &:focus-visible { outline: 2px solid vars.$color-action-primary; }
+}
+
+.submit {
+  width: 100%;
+  box-shadow: vars.$glow-primary;
+}
+
+.registerPrompt {
+  margin: vars.$space-lg 0 0;
+  color: vars.$color-text-secondary;
+  font-size: vars.$font-size-small;
+  text-align: center;
+
+  a {
+    color: vars.$color-action-primary;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover { text-decoration: underline; }
+    &:focus-visible { outline: 2px solid vars.$color-action-primary; outline-offset: 2px; }
+  }
+}

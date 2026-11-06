@@ -1,0 +1,162 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-xl;
+  padding: vars.$space-lg;
+}
+
+.welcome { display: flex; flex-direction: column; align-items: flex-start; }
+
+.eyebrow {
+  margin-bottom: vars.$space-sm;
+  color: vars.$color-text-secondary;
+  font-size: vars.$font-size-small;
+  letter-spacing: 0.12em;
+}
+
+.title {
+  margin: 0 0 vars.$space-xs;
+  color: vars.$color-text-primary;
+  font-size: vars.$font-size-h1;
+}
+
+.subtitle {
+  margin: 0;
+  color: vars.$color-text-secondary;
+  font-size: vars.$font-size-base;
+}
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: vars.$space-lg;
+}
+
+.summaryCard {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-sm;
+  padding: vars.$space-lg;
+}
+
+.summaryTop { display: flex; align-items: center; justify-content: space-between; }
+
+.summaryTitle {
+  margin: 0;
+  color: vars.$color-text-secondary;
+  font-size: vars.$font-size-h3;
+  font-weight: 500;
+}
+
+.income { color: vars.$color-action-income; }
+.expense { color: vars.$color-action-expense; }
+.balance { color: vars.$color-action-primary; }
+
+.summaryValue {
+  margin: 0;
+  color: vars.$color-text-primary;
+  font-size: vars.$font-size-h2;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.recentSection { display: flex; flex-direction: column; gap: vars.$space-md; }
+
+.sectionHeading { display: flex; align-items: center; justify-content: space-between; gap: vars.$space-md; }
+
+.sectionTitle {
+  margin: 0;
+  color: vars.$color-text-primary;
+  font-size: vars.$font-size-h3;
+}
+
+.emptyState {
+  margin: 0;
+  padding: vars.$space-xl;
+  border-radius: vars.$radius-md;
+  background: vars.$color-surface;
+  color: vars.$color-text-secondary;
+  text-align: center;
+}
+
+.transactionList {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-md;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.transactionItem {
+  display: flex;
+  align-items: center;
+  gap: vars.$space-md;
+  padding: vars.$space-md;
+  border-radius: vars.$radius-md;
+  background: vars.$color-surface;
+}
+
+.transactionIcon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  place-items: center;
+  border-radius: vars.$radius-md;
+}
+
+.incomeIcon { background: rgba(vars.$color-action-income, 0.12); color: vars.$color-action-income; }
+.expenseIcon { background: rgba(vars.$color-action-expense, 0.16); color: vars.$color-action-expense; }
+
+.transactionDetails { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: vars.$space-xs; }
+.transactionDescription { overflow: hidden; color: vars.$color-text-primary; text-overflow: ellipsis; white-space: nowrap; }
+.transactionMeta { color: vars.$color-text-secondary; font-size: vars.$font-size-small; }
+.transactionAmount { flex: 0 0 auto; font-weight: 600; }
+.incomeAmount { color: vars.$color-action-income; }
+.expenseAmount { color: vars.$color-action-expense; }
+
+.note {
+  margin: calc(-1 * vars.$space-md) 0 0;
+  color: vars.$color-text-secondary;
+  font-size: vars.$font-size-small;
+}
+
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 50px;
+  background: #4DC1FF;
+  box-shadow: 0 8px 24px rgba(77, 193, 255, 0.38);
+  color: #2B2B2B;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(77, 193, 255, 0.48); }
+  &:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+}
+
+@media (max-width: 900px) {
+  .summaryGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .container { padding: 0; }
+  .sectionHeading { align-items: flex-start; flex-direction: column; }
+  .transactionItem { gap: vars.$space-sm; padding: vars.$space-sm; }
+  .transactionAmount { font-size: vars.$font-size-small; }
+  .fab { right: 20px; bottom: 20px; }
+}

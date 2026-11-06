@@ -1,0 +1,80 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: vars.$space-md;
+  background: rgba(vars.$color-overlay, 0.7);
+}
+
+.modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: vars.$space-xl;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-surface;
+  box-shadow: vars.$shadow-modal;
+  animation: modal-enter 0.2s ease-out both;
+
+  /* Ocultar scrollbar en WebKit (Chrome, Safari, Edge) */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Ocultar scrollbar en Firefox */
+  scrollbar-width: none;
+  
+  /* Ocultar scrollbar en IE/Edge */
+  -ms-overflow-style: none;
+}
+
+.header { display: flex; align-items: flex-start; justify-content: space-between; gap: vars.$space-md; margin-bottom: vars.$space-lg; }
+.header h2, .successModal h2 { margin: 0 0 vars.$space-xs; color: vars.$color-text-primary; font-size: vars.$font-size-h3; }
+.header p { margin: 0; color: vars.$color-text-secondary; font-size: vars.$font-size-base; }
+.closeButton { display: grid; width: 36px; height: 36px; flex: 0 0 36px; place-items: center; border: 0; border-radius: vars.$radius-sm; background: transparent; color: vars.$color-text-secondary; cursor: pointer; }
+.closeButton:hover { background: rgba(vars.$color-text-primary, 0.1); color: vars.$color-text-primary; }
+
+.typeToggle { display: flex; gap: vars.$space-md; margin-bottom: vars.$space-lg; }
+.typeButton { @include mixins.button-base; flex: 1; padding: vars.$space-md; border-radius: vars.$radius-md; background: vars.$color-input-bg; border-color: rgba(vars.$color-text-primary, 0.2); color: vars.$color-text-secondary; }
+.incomeActive { border-color: vars.$color-action-income; background: vars.$color-action-income; color: vars.$color-action-income-text; }
+.expenseActive { border-color: vars.$color-action-expense; background: vars.$color-action-expense; color: vars.$color-action-expense-text; }
+
+.form { display: flex; flex-direction: column; gap: vars.$space-lg; }
+.selectField { display: flex; flex-direction: column; gap: vars.$space-sm; color: vars.$color-text-primary; }
+.selectField select { width: 100%; padding: vars.$space-sm vars.$space-md; border: 1px solid rgba(vars.$color-text-primary, 0.3); border-radius: vars.$radius-sm; outline: none; background: vars.$color-input-bg; color: vars.$color-text-primary; font: inherit; }
+.selectField select:focus { border-color: vars.$color-action-primary; box-shadow: 0 0 0 3px rgba(vars.$color-action-primary, 0.18); }
+.selectField select[aria-invalid='true'] { border-color: vars.$color-danger; box-shadow: 0 0 0 2px rgba(vars.$color-danger, 0.2); }
+.errorMessage { color: vars.$color-danger; font-size: vars.$font-size-small; }
+
+.fileField { display: flex; align-items: center; flex-wrap: wrap; gap: vars.$space-sm vars.$space-md; color: vars.$color-text-primary; }
+.fileField > span:first-child { width: 100%; }
+.fileField small { color: vars.$color-text-secondary; font-size: vars.$font-size-small; }
+.fileInput { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; clip-path: inset(50%); }
+.fileName { min-width: 0; overflow: hidden; color: vars.$color-text-secondary; font-size: vars.$font-size-small; text-overflow: ellipsis; white-space: nowrap; }
+
+.actions { display: flex; justify-content: flex-end; gap: vars.$space-md; margin-top: vars.$space-lg; }
+.successModal { display: flex; flex-direction: column; align-items: center; gap: vars.$space-md; text-align: center; }
+.successIcon { color: vars.$color-action-primary; }
+.successModal > p { margin: 0; color: vars.$color-text-secondary; }
+.analysis { display: flex; width: 100%; flex-direction: column; gap: vars.$space-sm; margin-top: vars.$space-md; padding: vars.$space-lg; border-radius: vars.$radius-md; background: vars.$color-bg-dark; text-align: left; }
+.analysis h3 { margin: 0; color: vars.$color-action-primary; font-size: vars.$font-size-h3; }
+.analysis p { margin: 0; color: vars.$color-text-secondary; font-size: vars.$font-size-base; }
+.analysis span { margin-top: vars.$space-xs; color: vars.$color-text-secondary; font-size: vars.$font-size-small; letter-spacing: 0.08em; }
+
+@keyframes modal-enter {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 520px) {
+  .modal { padding: vars.$space-lg; }
+  .actions { flex-direction: column-reverse; }
+  .actions > button { width: 100%; }
+}

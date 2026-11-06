@@ -1,0 +1,33 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-md;
+  padding: vars.$space-lg;
+}
+
+.header { display: flex; align-items: center; justify-content: space-between; }
+.goalIcon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: vars.$radius-md; background: rgba(vars.$color-action-primary, 0.12); color: vars.$color-action-primary; }
+.status { padding: vars.$space-xs vars.$space-sm; border-radius: vars.$radius-full; background: vars.$color-action-primary; color: vars.$color-action-primary-text; font-size: vars.$font-size-small; }
+.status.completed { background: vars.$color-action-income; }
+.name { margin: 0; color: vars.$color-text-primary; font-size: vars.$font-size-h3; }
+.amounts { margin: 0; color: vars.$color-text-primary; font-size: vars.$font-size-h3; font-weight: 600; }
+.amounts span { color: vars.$color-text-secondary; font-weight: 400; }
+.progressTrack { width: 100%; height: 8px; overflow: hidden; margin-top: vars.$space-sm; border-radius: vars.$radius-full; background: vars.$color-input-bg; }
+.progressFill { display: block; height: 100%; border-radius: vars.$radius-full; background: vars.$color-action-primary; transition: width 0.3s ease; }
+.progressFill.progressCompleted { background: vars.$color-action-income; }
+.progressText { display: flex; justify-content: space-between; margin-top: vars.$space-xs; color: vars.$color-text-secondary; font-size: vars.$font-size-small; }
+.meta { display: flex; justify-content: space-between; gap: vars.$space-md; color: vars.$color-text-secondary; font-size: vars.$font-size-small; }
+.meta span { display: inline-flex; align-items: center; gap: vars.$space-xs; }
+.actions { display: flex; flex-wrap: wrap; gap: vars.$space-sm; margin-top: vars.$space-md; }
+
+.actionButton { @include mixins.button-base; flex: 1 1 auto; padding: vars.$space-sm; font-size: vars.$font-size-small; }
+.secondaryAction { border-color: rgba(vars.$color-text-primary, 0.28); background: transparent; color: vars.$color-text-primary; }
+.secondaryAction:hover { background: rgba(vars.$color-text-primary, 0.08); }
+
+@media (max-width: 420px) {
+  .meta { align-items: flex-start; flex-direction: column; }
+  .actions > button { flex-basis: calc(50% - vars.$space-sm); }
+}

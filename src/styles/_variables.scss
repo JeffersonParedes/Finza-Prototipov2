@@ -1,0 +1,48 @@
+$color-bg-general: #242424;
+$color-bg-dark: #100F1F;
+$color-surface: #211A43;
+$color-input-bg: #100E34;
+$color-text-primary: #AEA3FF;
+$color-text-secondary: #9F9AB6;
+$color-text-placeholder: #9D9DB8;
+$color-action-primary: #4DC1FF;
+$color-action-primary-text: #2B2B2B;
+$color-action-income: #61D2FF;
+$color-action-income-text: #363636;
+$color-action-expense: #7A00D1;
+$color-action-expense-text: #F5F5F5;
+$color-danger: #FF8A8A;
+$color-danger-text: #000000;
+$color-danger-icon: #FFC2C2;
+$color-overlay: #000000;
+$color-shadow: #000000;
+
+// RGB channels allow TSX chart libraries to consume the same palette tokens.
+$color-text-primary-rgb: 174, 163, 255;
+$color-text-secondary-rgb: 159, 154, 182;
+$color-action-primary-rgb: 77, 193, 255;
+$color-action-income-rgb: 97, 210, 255;
+$color-action-expense-rgb: 122, 0, 209;
+$color-danger-rgb: 255, 138, 138;
+
+$font-size-h1: 30px;
+$font-size-h2: 24px;
+$font-size-h3: 18px;
+$font-size-base: 15px;
+$font-size-small: 12px;
+
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-full: 9999px;
+
+$shadow-card: 0 4px 12px rgba($color-shadow, 0.35);
+$shadow-modal: 0 10px 40px rgba($color-shadow, 0.6);
+$glow-primary: 0 0 20px rgba($color-action-primary, 0.45);
+$glow-danger: 0 0 20px rgba($color-danger, 0.45);

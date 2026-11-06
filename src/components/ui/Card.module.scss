@@ -1,0 +1,11 @@
+@use '../../styles/mixins' as mixins;
+
+.card {
+  @include mixins.card-surface;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.42);
+  }
+}

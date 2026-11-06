@@ -1,0 +1,131 @@
+@use '../../styles/variables' as vars;
+@use '../../styles/mixins' as mixins;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-xl;
+  padding: vars.$space-lg;
+}
+
+.pageHeader { display: flex; flex-direction: column; align-items: flex-start; }
+
+.eyebrow {
+  margin-bottom: vars.$space-sm;
+  color: vars.$color-text-secondary;
+  font-size: vars.$font-size-small;
+  letter-spacing: 0.12em;
+}
+
+.pageTitle {
+  margin: 0 0 vars.$space-xs;
+  color: vars.$color-text-primary;
+  font-size: vars.$font-size-h2;
+}
+
+.subtitle { margin: 0; color: vars.$color-text-secondary; font-size: vars.$font-size-base; }
+
+.summaryGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: vars.$space-lg;
+}
+.predictiveGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: vars.$space-lg; }
+
+.summaryCard {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: vars.$space-sm;
+  padding: vars.$space-lg;
+}
+
+.summaryHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: vars.$space-sm; }
+.summaryHeader h2 { margin: 0; color: vars.$color-text-secondary; font-size: vars.$font-size-h3; font-weight: 500; }
+.income { color: vars.$color-action-income; }
+.expense { color: vars.$color-action-expense; }
+.balance, .forecast { color: vars.$color-action-primary; }
+
+.summaryValue {
+  margin: 0;
+  color: vars.$color-text-primary;
+  font-size: vars.$font-size-h2;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.chartGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: vars.$space-lg; }
+
+.chartCard {
+  min-width: 0;
+  padding: vars.$space-lg;
+  border-radius: vars.$radius-lg;
+  background: vars.$color-surface;
+}
+
+.chartTitle { margin: 0 0 vars.$space-md; color: vars.$color-text-primary; font-size: vars.$font-size-h3; }
+.chart { width: 100%; height: 300px; }
+.monthlyChart { width: 100%; height: 350px; }
+
+.emptyState {
+  display: grid;
+  min-height: 300px;
+  place-items: center;
+  margin: 0;
+  color: vars.$color-text-secondary;
+  text-align: center;
+}
+
+.predictiveSection { display: flex; flex-direction: column; gap: vars.$space-md; }
+.predictiveTitle { margin: 0; color: vars.$color-text-primary; font-size: vars.$font-size-h3; }
+.predictiveGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+.predictiveCard {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-sm;
+  padding: vars.$space-lg;
+
+  h3 { margin: 0; color: vars.$color-text-secondary; font-size: vars.$font-size-base; font-weight: 500; }
+  p { margin: 0; color: vars.$color-text-primary; font-size: vars.$font-size-h2; font-weight: 600; }
+}
+
+.historyButton { align-self: flex-start; }
+
+.fab {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border: 0;
+  border-radius: 50px;
+  background: #4DC1FF;
+  box-shadow: 0 8px 24px rgba(77, 193, 255, 0.38);
+  color: #2B2B2B;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(77, 193, 255, 0.48); }
+  &:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+}
+
+@media (max-width: 1100px) {
+  .summaryGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 760px) {
+  .container { padding: 0; }
+  .chartGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .summaryGrid, .predictiveGrid { grid-template-columns: 1fr; }
+  .fab { right: 20px; bottom: 20px; }
+}

@@ -1,0 +1,17 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as vars;
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: vars.$space-sm;
+}
+
+.label { color: vars.$color-text-primary; }
+.input { @include mixins.input-base; transition: all 0.2s ease-in-out; }
+.error { @include mixins.input-error; }
+
+.errorMessage {
+  color: vars.$color-danger;
+  font-size: vars.$font-size-small;
+}

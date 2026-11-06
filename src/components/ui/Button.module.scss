@@ -1,0 +1,32 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables' as vars;
+
+.button {
+  @include mixins.button-base;
+}
+
+.primary {
+  @include mixins.button-primary;
+  &:hover:not(:disabled) { filter: brightness(1.1); box-shadow: 0 0 26px rgba(vars.$color-action-primary, 0.6); }
+}
+.income {
+  @include mixins.button-income;
+  &:hover:not(:disabled) { filter: brightness(1.1); box-shadow: 0 0 22px rgba(vars.$color-action-income, 0.45); }
+}
+.expense {
+  @include mixins.button-expense;
+  &:hover:not(:disabled) { filter: brightness(1.1); box-shadow: 0 0 22px rgba(vars.$color-action-expense, 0.5); }
+}
+.danger {
+  @include mixins.button-danger;
+
+  svg { color: vars.$color-danger-icon; }
+}
+
+.secondary {
+  border-color: rgba(vars.$color-text-primary, 0.28);
+  background: transparent;
+  color: vars.$color-text-primary;
+
+  &:hover { background: rgba(vars.$color-text-primary, 0.08); }
+}
